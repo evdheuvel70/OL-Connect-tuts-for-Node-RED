@@ -1,0 +1,12 @@
+{
+    "name": "OL-Connect-tuts-for-Node-RED",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "ol-connect-tuts.json",
+            "credentialsFile": "ol-connect-tuts_cred.json"
+        }
+    }
+}
