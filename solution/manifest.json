@@ -1,0 +1,8 @@
+{ 
+    "email" : "Laura from OL Acme <laura@ol-acme.com>",
+    "resources": [
+      "olsg-invoice.OL-template",
+      "olsg-invoice-XML.OL-datamapper",
+      "olsg-invoice-data.xml"
+    ]
+  }
