@@ -2,7 +2,9 @@
     "name": "OL-Connect-tuts-for-Node-RED",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-contrib-ol-connect": "0.1.39"
+    },
     "node-red": {
         "settings": {
             "flowFile": "ol-connect-tuts.json",
