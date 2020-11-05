@@ -1,0 +1,5 @@
+{ 
+  "email": "Laura from OL Acme <laura@ol-acme.com>",
+  "someApi": "http://localhost/myendpoint",
+  "workspace": "C:\\workspace"
+}

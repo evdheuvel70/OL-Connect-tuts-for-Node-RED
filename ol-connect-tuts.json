@@ -7,210 +7,6 @@
         "info": ""
     },
     {
-        "id": "bdb9bf50.e7173",
-        "type": "tab",
-        "label": "Web pages",
-        "disabled": false,
-        "info": ""
-    },
-    {
-        "id": "6d8b614b.797fc",
-        "type": "OL Connect Server",
-        "z": "",
-        "host": "192.168.2.101",
-        "port": "9340",
-        "name": ""
-    },
-    {
-        "id": "138750f7.835137",
-        "type": "inject",
-        "z": "7fa855a9.74a30c",
-        "name": "",
-        "props": [
-            {
-                "p": "filename",
-                "v": "/data/projects/OL-Connect-tuts-for-Node-RED/solution/manifest.json",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 110,
-        "y": 60,
-        "wires": [
-            [
-                "91a20da5.975888"
-            ]
-        ]
-    },
-    {
-        "id": "91a20da5.975888",
-        "type": "file in",
-        "z": "7fa855a9.74a30c",
-        "name": "Read manifest",
-        "filename": "",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "x": 260,
-        "y": 60,
-        "wires": [
-            [
-                "feaeb048.0f57f"
-            ]
-        ]
-    },
-    {
-        "id": "feaeb048.0f57f",
-        "type": "json",
-        "z": "7fa855a9.74a30c",
-        "name": "",
-        "property": "payload",
-        "action": "",
-        "pretty": false,
-        "x": 410,
-        "y": 60,
-        "wires": [
-            [
-                "913ac452.14c63"
-            ]
-        ]
-    },
-    {
-        "id": "43636305.59ebac",
-        "type": "debug",
-        "z": "7fa855a9.74a30c",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload & ' [' & managedFileId & ']'",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "6e82eece.e253d",
-        "type": "change",
-        "z": "7fa855a9.74a30c",
-        "name": "Lift resource names",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.resources",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 160,
-        "y": 160,
-        "wires": [
-            [
-                "ad981a95.efec78"
-            ]
-        ]
-    },
-    {
-        "id": "ad981a95.efec78",
-        "type": "split",
-        "z": "7fa855a9.74a30c",
-        "name": "",
-        "splt": "\\n",
-        "spltType": "str",
-        "arraySplt": 1,
-        "arraySpltType": "len",
-        "stream": false,
-        "addname": "",
-        "x": 330,
-        "y": 160,
-        "wires": [
-            [
-                "990326a6.ac99e"
-            ]
-        ]
-    },
-    {
-        "id": "990326a6.ac99e",
-        "type": "change",
-        "z": "7fa855a9.74a30c",
-        "name": "Construct path",
-        "rules": [
-            {
-                "t": "set",
-                "p": "resourcesFolder",
-                "pt": "msg",
-                "to": "/data/projects/OL-Connect-tuts-for-Node-RED/solution/resources/",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "filename",
-                "pt": "msg",
-                "to": "resourcesFolder & payload",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 480,
-        "y": 160,
-        "wires": [
-            [
-                "2ec55e83.8643f2"
-            ]
-        ]
-    },
-    {
-        "id": "289eff59.572a",
-        "type": "http in",
-        "z": "bdb9bf50.e7173",
-        "name": "",
-        "url": "/hello",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 140,
-        "y": 120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6d5b115e.4b6fa",
-        "type": "http response",
-        "z": "bdb9bf50.e7173",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 570,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "912aa065.12cfe",
-        "type": "tab",
-        "label": "Utils",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "3de50bd9.3572a4",
         "type": "subflow",
         "name": "Spotify: refresh token",
@@ -269,9 +65,15 @@
         "color": "#DDAA99"
     },
     {
+        "id": "6d8b614b.797fc",
+        "type": "OL Connect Server",
+        "host": "192.168.2.101",
+        "port": "9340",
+        "name": ""
+    },
+    {
         "id": "9646c685.9f4cc",
         "type": "mqtt-broker",
-        "z": "",
         "name": "local",
         "broker": "neela.local",
         "port": "1883",
@@ -291,20 +93,63 @@
         "willPayload": ""
     },
     {
-        "id": "913ac452.14c63",
-        "type": "debug",
+        "id": "138750f7.835137",
+        "type": "inject",
         "z": "7fa855a9.74a30c",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 550,
-        "y": 60,
-        "wires": []
+        "props": [
+            {
+                "p": "timestamp",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "91a20da5.975888"
+            ]
+        ]
+    },
+    {
+        "id": "91a20da5.975888",
+        "type": "file in",
+        "z": "7fa855a9.74a30c",
+        "name": "Read manifest",
+        "filename": "C:\\projects\\project-a\\resources\\manifest.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 260,
+        "y": 100,
+        "wires": [
+            [
+                "feaeb048.0f57f"
+            ]
+        ]
+    },
+    {
+        "id": "feaeb048.0f57f",
+        "type": "json",
+        "z": "7fa855a9.74a30c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 410,
+        "y": 100,
+        "wires": [
+            [
+                "416e6405.153a6c"
+            ]
+        ]
     },
     {
         "id": "1cd24155.73c72f",
@@ -455,85 +300,17 @@
         ]
     },
     {
-        "id": "64fc5b55.9207d4",
-        "type": "inject",
-        "z": "912aa065.12cfe",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 180,
-        "wires": [
-            [
-                "4da86569.071924"
-            ]
-        ]
-    },
-    {
-        "id": "d3c92a14.2d8d9",
-        "type": "http request",
-        "z": "912aa065.12cfe",
-        "name": "",
-        "method": "POST",
-        "ret": "obj",
-        "paytoqs": "body",
-        "url": "http://localhost:1880/foo",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "x": 590,
-        "y": 180,
-        "wires": [
-            [
-                "265e67e9.e12968"
-            ]
-        ]
-    },
-    {
-        "id": "19722f08.73a311",
-        "type": "http in",
-        "z": "912aa065.12cfe",
-        "name": "",
-        "url": "foo",
-        "method": "post",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 120,
-        "y": 420,
-        "wires": [
-            [
-                "b872164c.c8ab5",
-                "993bb3a0.043b5"
-            ]
-        ]
-    },
-    {
-        "id": "4da86569.071924",
+        "id": "416e6405.153a6c",
         "type": "change",
-        "z": "912aa065.12cfe",
-        "name": "",
+        "z": "7fa855a9.74a30c",
+        "name": "Set globals",
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"foo\":\"bar\"}",
-                "tot": "json"
+                "p": "email",
+                "pt": "global",
+                "to": "payload.email",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -541,137 +318,31 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 180,
+        "x": 550,
+        "y": 100,
         "wires": [
-            [
-                "d3c92a14.2d8d9"
-            ]
+            []
         ]
     },
     {
-        "id": "b872164c.c8ab5",
-        "type": "debug",
-        "z": "912aa065.12cfe",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 390,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "265e67e9.e12968",
-        "type": "debug",
-        "z": "912aa065.12cfe",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 890,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "993bb3a0.043b5",
-        "type": "http response",
-        "z": "912aa065.12cfe",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 390,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "65715133.3b9e08",
-        "type": "inject",
-        "z": "912aa065.12cfe",
-        "name": "Login to WordPress",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 150,
-        "y": 280,
-        "wires": [
-            [
-                "425d1161.b66818"
-            ]
-        ]
-    },
-    {
-        "id": "fb39156a.e7063",
-        "type": "http request",
-        "z": "912aa065.12cfe",
-        "name": "",
-        "method": "POST",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "http://wordpress/wp-json/jwt-auth/v1/token",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "authType": "",
-        "x": 570,
-        "y": 280,
-        "wires": [
-            [
-                "fc392f34.a68c6"
-            ]
-        ]
-    },
-    {
-        "id": "fc392f34.a68c6",
-        "type": "debug",
-        "z": "912aa065.12cfe",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 750,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "425d1161.b66818",
+        "id": "1b455f00.c6a279",
         "type": "change",
-        "z": "912aa065.12cfe",
+        "z": "7fa855a9.74a30c",
         "name": "",
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
+                "p": "email",
                 "pt": "msg",
-                "to": "{\"username\":\"parkerp\",\"password\":\"objlune\"}",
-                "tot": "json"
+                "to": "email",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "jobEndPoint",
+                "pt": "msg",
+                "to": "$globalContext('someApi') & '/jobs'",
+                "tot": "jsonata"
             }
         ],
         "action": "",
@@ -679,29 +350,92 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 280,
+        "x": 260,
+        "y": 260,
         "wires": [
             [
-                "fb39156a.e7063",
-                "1d0188e6.ad7867"
+                "6d20c520.f449cc",
+                "1b75c767.262bd1"
             ]
         ]
     },
     {
-        "id": "1d0188e6.ad7867",
+        "id": "6d20c520.f449cc",
         "type": "debug",
-        "z": "912aa065.12cfe",
+        "z": "7fa855a9.74a30c",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "jobEndPoint",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
-        "y": 360,
+        "x": 470,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1b75c767.262bd1",
+        "type": "debug",
+        "z": "7fa855a9.74a30c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "email",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8c042a52.05d07",
+        "type": "inject",
+        "z": "7fa855a9.74a30c",
+        "name": "",
+        "props": [
+            {
+                "p": "timestamp",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "1b455f00.c6a279"
+            ]
+        ]
+    },
+    {
+        "id": "1efe14dd.ad3efb",
+        "type": "comment",
+        "z": "7fa855a9.74a30c",
+        "name": "Read a manifest to set globals",
+        "info": "",
+        "x": 190,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "7d714b4f.89fe94",
+        "type": "comment",
+        "z": "7fa855a9.74a30c",
+        "name": "Use globals",
+        "info": "",
+        "x": 130,
+        "y": 220,
         "wires": []
     }
 ]
