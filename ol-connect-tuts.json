@@ -1,1 +1,241 @@
-[{"id":"7fa855a9.74a30c","type":"tab","label":"Startup","disabled":false,"info":""},{"id":"6d8b614b.797fc","type":"OL Connect Server","z":"","host":"localhost","port":"9340","name":""},{"id":"138750f7.835137","type":"inject","z":"7fa855a9.74a30c","name":"","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":true,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":130,"y":60,"wires":[["91a20da5.975888"]]},{"id":"91a20da5.975888","type":"file in","z":"7fa855a9.74a30c","name":"Read manifest","filename":"C:\\Users\\vandenhe\\.node-red\\projects\\OL-Connect-tuts-for-Node-RED\\solution\\manifest.json","format":"utf8","chunk":false,"sendError":false,"encoding":"none","x":300,"y":60,"wires":[["feaeb048.0f57f"]]},{"id":"feaeb048.0f57f","type":"json","z":"7fa855a9.74a30c","name":"","property":"payload","action":"","pretty":false,"x":450,"y":60,"wires":[["9c2e0374.4f78e8"]]},{"id":"9c2e0374.4f78e8","type":"change","z":"7fa855a9.74a30c","name":"Set globals","rules":[{"t":"set","p":"email","pt":"global","to":"payload.email","tot":"msg"},{"t":"set","p":"cotgFormsEndPoint","pt":"global","to":"http://localhost:1880/cotg/forms","tot":"str"}],"action":"","property":"","from":"","to":"","reg":false,"x":590,"y":60,"wires":[["6e82eece.e253d"]]},{"id":"43636305.59ebac","type":"debug","z":"7fa855a9.74a30c","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"true","targetType":"full","statusVal":"","statusType":"auto","x":810,"y":140,"wires":[]},{"id":"6e82eece.e253d","type":"change","z":"7fa855a9.74a30c","name":"Lift resource names","rules":[{"t":"set","p":"payload","pt":"msg","to":"payload.resources","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":160,"y":140,"wires":[["ad981a95.efec78"]]},{"id":"ad981a95.efec78","type":"split","z":"7fa855a9.74a30c","name":"","splt":"\\n","spltType":"str","arraySplt":1,"arraySpltType":"len","stream":false,"addname":"","x":330,"y":140,"wires":[["990326a6.ac99e"]]},{"id":"990326a6.ac99e","type":"change","z":"7fa855a9.74a30c","name":"Construct path","rules":[{"t":"set","p":"resourcesFolder","pt":"msg","to":"C:\\Users\\vandenhe\\.node-red\\projects\\OL-Connect-tuts-for-Node-RED\\solution\\resources\\","tot":"str"},{"t":"set","p":"filename","pt":"msg","to":"resourcesFolder & payload","tot":"jsonata"}],"action":"","property":"","from":"","to":"","reg":false,"x":480,"y":140,"wires":[["2ec55e83.8643f2"]]},{"id":"2ec55e83.8643f2","type":"olcnr-file-upload","z":"7fa855a9.74a30c","connect_server":"6d8b614b.797fc","filename":"","markAsPermanent":true,"name":"","x":660,"y":140,"wires":[["43636305.59ebac"]]}]
+[
+    {
+        "id": "7fa855a9.74a30c",
+        "type": "tab",
+        "label": "Startup",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "bdb9bf50.e7173",
+        "type": "tab",
+        "label": "Web pages",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6d8b614b.797fc",
+        "type": "OL Connect Server",
+        "host": "localhost",
+        "port": "9340",
+        "name": ""
+    },
+    {
+        "id": "138750f7.835137",
+        "type": "inject",
+        "z": "7fa855a9.74a30c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "91a20da5.975888"
+            ]
+        ]
+    },
+    {
+        "id": "91a20da5.975888",
+        "type": "file in",
+        "z": "7fa855a9.74a30c",
+        "name": "Read manifest",
+        "filename": "C:\\Users\\vandenhe\\.node-red\\projects\\OL-Connect-tuts-for-Node-RED\\solution\\manifest.json",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 300,
+        "y": 60,
+        "wires": [
+            [
+                "feaeb048.0f57f"
+            ]
+        ]
+    },
+    {
+        "id": "feaeb048.0f57f",
+        "type": "json",
+        "z": "7fa855a9.74a30c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 450,
+        "y": 60,
+        "wires": [
+            [
+                "9c2e0374.4f78e8"
+            ]
+        ]
+    },
+    {
+        "id": "9c2e0374.4f78e8",
+        "type": "change",
+        "z": "7fa855a9.74a30c",
+        "name": "Set globals",
+        "rules": [
+            {
+                "t": "set",
+                "p": "email",
+                "pt": "global",
+                "to": "payload.email",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "cotgFormsEndPoint",
+                "pt": "global",
+                "to": "http://localhost:1880/cotg/forms",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 60,
+        "wires": [
+            [
+                "6e82eece.e253d"
+            ]
+        ]
+    },
+    {
+        "id": "43636305.59ebac",
+        "type": "debug",
+        "z": "7fa855a9.74a30c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6e82eece.e253d",
+        "type": "change",
+        "z": "7fa855a9.74a30c",
+        "name": "Lift resource names",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.resources",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "ad981a95.efec78"
+            ]
+        ]
+    },
+    {
+        "id": "ad981a95.efec78",
+        "type": "split",
+        "z": "7fa855a9.74a30c",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "990326a6.ac99e"
+            ]
+        ]
+    },
+    {
+        "id": "990326a6.ac99e",
+        "type": "change",
+        "z": "7fa855a9.74a30c",
+        "name": "Construct path",
+        "rules": [
+            {
+                "t": "set",
+                "p": "resourcesFolder",
+                "pt": "msg",
+                "to": "C:\\Users\\vandenhe\\.node-red\\projects\\OL-Connect-tuts-for-Node-RED\\solution\\resources\\",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "resourcesFolder & payload",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "289eff59.572a",
+        "type": "http in",
+        "z": "bdb9bf50.e7173",
+        "name": "",
+        "url": "/hello",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d5b115e.4b6fa",
+        "type": "http response",
+        "z": "bdb9bf50.e7173",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 570,
+        "y": 120,
+        "wires": []
+    }
+]
