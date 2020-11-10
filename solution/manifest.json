@@ -1,0 +1,6 @@
+{ 
+  "resources": [
+      "olsg-invoice.OL-template",
+      "olsg-invoice-XML.OL-datamapper"
+    ]
+}
