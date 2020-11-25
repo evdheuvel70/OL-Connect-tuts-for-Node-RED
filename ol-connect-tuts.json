@@ -7,6 +7,27 @@
         "info": ""
     },
     {
+        "id": "c7add601.439bc",
+        "type": "tab",
+        "label": "Web content",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "de585d64.bc49e",
+        "type": "tab",
+        "label": "Transactional print jobs",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "cbba48f8.b517c",
+        "type": "tab",
+        "label": "Capture OnTheGo",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "3de50bd9.3572a4",
         "type": "subflow",
         "name": "Spotify: refresh token",
@@ -65,31 +86,95 @@
         "color": "#DDAA99"
     },
     {
-        "id": "9646c685.9f4cc",
-        "type": "mqtt-broker",
-        "name": "local",
-        "broker": "neela.local",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": ""
+        "id": "5f9edd7c.601aec",
+        "type": "OL COTG Server",
+        "server": "nubook",
+        "privateURL": "https://localhost/cotg/wp-json/cotg/v1/documents",
+        "name": ""
     },
     {
-        "id": "19a910ab.40cd5f",
+        "id": "39d7e637.abc1ea",
         "type": "OL Connect Server",
+        "url": "http://localhost:9340",
+        "name": ""
+    },
+    {
+        "id": "534911ff.4f5bb8",
+        "type": "advanced-ftp-config",
+        "host": "ftp-ca.objectiflune.com",
+        "port": "",
+        "secure": false,
+        "secureOptions": "",
+        "user": "OLCA17",
+        "connTimeout": "",
+        "pasvTimeout": "",
+        "keepalive": "",
+        "name": ""
+    },
+    {
+        "id": "725dbda6.16a3cc",
+        "type": "ftp-download-server",
+        "host": "ftp-ca.objectiflune.com",
+        "port": "21",
+        "user": "OLCA17",
+        "connTimeout": "10000",
+        "pasvTimeout": "10000",
+        "keepalive": "10000",
+        "name": ""
+    },
+    {
+        "id": "be111fb7.8419b",
+        "type": "SFTP-credentials",
+        "host": "test.rebex.net",
+        "port": "22",
+        "username": "demo",
+        "password": "password"
+    },
+    {
+        "id": "530824f9.c6ee34",
+        "type": "ftp",
+        "host": "ftp-ca.objectiflune.com",
+        "port": "",
+        "connTimeout": "",
+        "pasvTimeout": "",
+        "keepalive": ""
+    },
+    {
+        "id": "2e17f392.951ac4",
+        "type": "lftp-config",
         "host": "localhost",
-        "port": "9340",
+        "protocol": "ftp",
+        "port": "21",
+        "escape": true,
+        "retries": "2",
+        "timeout": "10",
+        "retryInterval": "5",
+        "retryMultiplier": "1",
+        "requiresPassword": true,
+        "additionalLftpCommands": ""
+    },
+    {
+        "id": "8f045672.517fc",
+        "type": "sftp",
+        "host": "test.rebex.net",
+        "port": "22",
+        "tryKeyboard": false,
+        "key": "",
+        "keyname": "",
+        "algorithms_kex": "ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1",
+        "algorithms_cipher": "aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm,aes128-gcm@openssh.com,aes256-gcm,aes256-gcm@openssh.com",
+        "algorithms_serverHostKey": "ssh-rsa,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521",
+        "algorithms_hmac": "hmac-sha2-256,hmac-sha2-512,hmac-sha1",
+        "algorithms_compress": "none,zlib@openssh.com,zlib"
+    },
+    {
+        "id": "7e5229b7.42c898",
+        "type": "mongodb",
+        "hostname": "localhost",
+        "topology": "direct",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "cotg",
         "name": ""
     },
     {
@@ -454,12 +539,12 @@
         "type": "file in",
         "z": "7fa855a9.74a30c",
         "name": "Read manifest",
-        "filename": ".node-red\\projects\\OL-Connect-tuts-for-Node-RED\\solution\\manifest.json",
+        "filename": "C:\\projects\\project-b\\resources\\manifest.json",
         "format": "utf8",
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 300,
+        "x": 280,
         "y": 520,
         "wires": [
             [
@@ -475,7 +560,7 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 450,
+        "x": 430,
         "y": 520,
         "wires": [
             [
@@ -509,12 +594,12 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
+        "x": 120,
         "y": 520,
         "wires": [
             [
@@ -534,7 +619,7 @@
         "stream": false,
         "addname": "",
         "x": 450,
-        "y": 600,
+        "y": 580,
         "wires": [
             [
                 "915d4ce9.11cde8"
@@ -561,7 +646,7 @@
         "to": "",
         "reg": false,
         "x": 250,
-        "y": 600,
+        "y": 580,
         "wires": [
             [
                 "d633b77c.ea6ec8"
@@ -630,7 +715,7 @@
                 "t": "set",
                 "p": "resourceFolder",
                 "pt": "msg",
-                "to": "solution\\resources\\",
+                "to": "C:\\projects\\project-b\\resources\\",
                 "tot": "str"
             },
             {
@@ -647,7 +732,7 @@
         "to": "",
         "reg": false,
         "x": 230,
-        "y": 680,
+        "y": 640,
         "wires": [
             [
                 "d5b4b291.fc51b8"
@@ -667,25 +752,31 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 590,
-        "y": 680,
+        "x": 770,
+        "y": 640,
         "wires": []
     },
     {
         "id": "d5b4b291.fc51b8",
         "type": "olcnr-file-upload",
         "z": "7fa855a9.74a30c",
-        "connect_server": "19a910ab.40cd5f",
+        "connect_server": "39d7e637.abc1ea",
         "filename": "",
         "markAsPermanent": true,
         "name": "",
         "x": 430,
-        "y": 680,
+        "y": 640,
         "wires": [
             [
                 "c9fd00fd.4224a8",
                 "ec00f898.5fea38"
             ]
+        ],
+        "inputLabels": [
+            "foo"
+        ],
+        "outputLabels": [
+            "bar"
         ]
     },
     {
@@ -701,8 +792,1222 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 610,
+        "x": 750,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "8014e3f9.aca038",
+        "type": "http in",
+        "z": "c7add601.439bc",
+        "name": "",
+        "url": "/hello",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "2b123a18.8e908e",
+                "3185c50d.312e5a"
+            ]
+        ]
+    },
+    {
+        "id": "2b123a18.8e908e",
+        "type": "olcnr-html-content",
+        "z": "c7add601.439bc",
+        "connect_server": "39d7e637.abc1ea",
+        "template": "basic-webpage.OL-template",
+        "section": "",
+        "cssSelector": "",
+        "embedResources": true,
+        "name": "",
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "cd589f50.7f2668"
+            ]
+        ]
+    },
+    {
+        "id": "cd589f50.7f2668",
+        "type": "http response",
+        "z": "c7add601.439bc",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 570,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9f7727c4.f01c3",
+        "type": "http in",
+        "z": "c7add601.439bc",
+        "name": "",
+        "url": "/hello2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 280,
+        "wires": [
+            [
+                "fcb27c97.7bc7f8"
+            ]
+        ]
+    },
+    {
+        "id": "cb6fea62.45ee9",
+        "type": "olcnr-html-content",
+        "z": "c7add601.439bc",
+        "connect_server": "39d7e637.abc1ea",
+        "template": "basic-webpage.OL-template",
+        "section": "",
+        "cssSelector": "",
+        "embedResources": true,
+        "name": "",
+        "x": 720,
+        "y": 280,
+        "wires": [
+            [
+                "ad8b8c9.146707"
+            ]
+        ]
+    },
+    {
+        "id": "ad8b8c9.146707",
+        "type": "http response",
+        "z": "c7add601.439bc",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 910,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "fcb27c97.7bc7f8",
+        "type": "switch",
+        "z": "c7add601.439bc",
+        "name": "",
+        "property": "payload.first",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 310,
+        "y": 280,
+        "wires": [
+            [
+                "cb6fea62.45ee9"
+            ],
+            [
+                "71f702de.10f264"
+            ]
+        ]
+    },
+    {
+        "id": "71f702de.10f264",
+        "type": "change",
+        "z": "c7add601.439bc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "section",
+                "pt": "msg",
+                "to": "Section 2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 340,
+        "wires": [
+            [
+                "cb6fea62.45ee9"
+            ]
+        ]
+    },
+    {
+        "id": "3185c50d.312e5a",
+        "type": "debug",
+        "z": "c7add601.439bc",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "54d3f297.48ee94",
+        "type": "watch-directory",
+        "z": "de585d64.bc49e",
+        "folder": "C:\\projects\\transactional-print-jobs\\in",
+        "recursive": 0,
+        "typeEvent": "create",
+        "ignoreInitial": true,
+        "ignoredFiles": "",
+        "ignoredFilesType": "re",
+        "name": "",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "a3c90c63.71018"
+            ]
+        ]
+    },
+    {
+        "id": "a3c90c63.71018",
+        "type": "olcnr-data-mapping",
+        "z": "de585d64.bc49e",
+        "connect_server": "39d7e637.abc1ea",
+        "dataMapper": "printbsc-transactional xml.OL-datamapper",
+        "active": false,
+        "name": "data mapping",
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "d271ea02.986318"
+            ]
+        ]
+    },
+    {
+        "id": "d271ea02.986318",
+        "type": "olcnr-print-content",
+        "z": "de585d64.bc49e",
+        "connect_server": "39d7e637.abc1ea",
+        "template": "printbsc-invoice.OL-template",
+        "name": "print content",
+        "x": 670,
+        "y": 80,
+        "wires": [
+            [
+                "4a03a177.dca048"
+            ]
+        ]
+    },
+    {
+        "id": "4a03a177.dca048",
+        "type": "olcnr-print-job",
+        "z": "de585d64.bc49e",
+        "connect_server": "39d7e637.abc1ea",
+        "jobPreset": "printbsc-group customers.OL-jobpreset",
+        "name": "print job",
+        "x": 820,
+        "y": 80,
+        "wires": [
+            [
+                "492bb0c0.599858"
+            ]
+        ]
+    },
+    {
+        "id": "492bb0c0.599858",
+        "type": "olcnr-print-output",
+        "z": "de585d64.bc49e",
+        "connect_server": "39d7e637.abc1ea",
+        "outputPreset": "printbsc-per customer.OL-outputpreset",
+        "name": "print output",
+        "x": 970,
+        "y": 80,
+        "wires": [
+            [
+                "46303316.7dbdfc"
+            ]
+        ]
+    },
+    {
+        "id": "2b89529e.1c3176",
+        "type": "debug",
+        "z": "de585d64.bc49e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "46303316.7dbdfc",
+        "type": "olcnr-file-download",
+        "z": "de585d64.bc49e",
+        "connect_server": "39d7e637.abc1ea",
+        "managedFileId": "",
+        "name": "",
+        "outputas": "",
+        "x": 690,
+        "y": 180,
+        "wires": [
+            [
+                "4741281c.09a308"
+            ]
+        ]
+    },
+    {
+        "id": "4741281c.09a308",
+        "type": "file",
+        "z": "de585d64.bc49e",
+        "name": "Write output to disk",
+        "filename": "C:\\projects\\transactional-print-jobs\\out\\output.zip",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 870,
+        "y": 180,
+        "wires": [
+            [
+                "2b89529e.1c3176"
+            ]
+        ]
+    },
+    {
+        "id": "fa4f9ea8.a675d",
+        "type": "inject",
+        "z": "de585d64.bc49e",
+        "name": "Sample data 50 recs.xml",
+        "props": [
+            {
+                "p": "filename",
+                "v": "C:\\projects\\transactional-print-jobs\\resources\\Sample Data-50recs.xml",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "a3c90c63.71018"
+            ]
+        ]
+    },
+    {
+        "id": "8ccab04f.7d26f",
+        "type": "olcnr-data-mapping",
+        "z": "de585d64.bc49e",
+        "connect_server": "39d7e637.abc1ea",
+        "dataMapper": "printbsc-transactional xml.OL-datamapper",
+        "active": false,
+        "name": "data mapping",
+        "x": 360,
+        "y": 300,
+        "wires": [
+            [
+                "1b764270.7811ee"
+            ]
+        ]
+    },
+    {
+        "id": "1b764270.7811ee",
+        "type": "olcnr-print-content",
+        "z": "de585d64.bc49e",
+        "connect_server": "39d7e637.abc1ea",
+        "template": "printbsc-invoice.OL-template",
+        "name": "print content",
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [
+                "de86dffa.5e06a8"
+            ]
+        ]
+    },
+    {
+        "id": "de86dffa.5e06a8",
+        "type": "olcnr-print-job",
+        "z": "de585d64.bc49e",
+        "connect_server": "39d7e637.abc1ea",
+        "jobPreset": "printbsc-group customers.OL-jobpreset",
+        "name": "print job",
+        "x": 680,
+        "y": 300,
+        "wires": [
+            [
+                "8c028c0a.bb856"
+            ]
+        ]
+    },
+    {
+        "id": "8c028c0a.bb856",
+        "type": "olcnr-print-output",
+        "z": "de585d64.bc49e",
+        "connect_server": "39d7e637.abc1ea",
+        "outputPreset": "printbsc-per customer.OL-outputpreset",
+        "name": "print output",
+        "x": 250,
+        "y": 400,
+        "wires": [
+            [
+                "aab748d3.da0dd"
+            ]
+        ]
+    },
+    {
+        "id": "aed32a6f.7b2b4",
+        "type": "debug",
+        "z": "de585d64.bc49e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "2a73683b.33339",
+        "type": "olcnr-file-download",
+        "z": "de585d64.bc49e",
+        "connect_server": "39d7e637.abc1ea",
+        "managedFileId": "",
+        "name": "",
+        "outputas": "",
+        "x": 710,
+        "y": 400,
+        "wires": [
+            [
+                "9316da9f.e75118"
+            ]
+        ]
+    },
+    {
+        "id": "8461acf7.84eea",
+        "type": "inject",
+        "z": "de585d64.bc49e",
+        "name": "Sample data 50 recs.xml",
+        "props": [
+            {
+                "p": "filename",
+                "v": "C:\\projects\\transactional-print-jobs\\resources\\Sample Data-50recs.xml",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "8ccab04f.7d26f"
+            ]
+        ]
+    },
+    {
+        "id": "aab748d3.da0dd",
+        "type": "split",
+        "z": "de585d64.bc49e",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 390,
+        "y": 400,
+        "wires": [
+            [
+                "720f7b6d.744814"
+            ]
+        ]
+    },
+    {
+        "id": "720f7b6d.744814",
+        "type": "change",
+        "z": "de585d64.bc49e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "managedFileId & '/' & payload",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\projects\\\\transactional-print-jobs\\\\out\\\\' & payload",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 400,
+        "wires": [
+            [
+                "2a73683b.33339",
+                "17ade9c1.c0a626"
+            ]
+        ]
+    },
+    {
+        "id": "17ade9c1.c0a626",
+        "type": "debug",
+        "z": "de585d64.bc49e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "managedFileId",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "9316da9f.e75118",
+        "type": "file",
+        "z": "de585d64.bc49e",
+        "name": "Write output to disk",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 890,
+        "y": 400,
+        "wires": [
+            [
+                "aed32a6f.7b2b4"
+            ]
+        ]
+    },
+    {
+        "id": "4a5dbc83.5b6bd4",
+        "type": "inject",
+        "z": "cbba48f8.b517c",
+        "name": "Sample data 2 recs.xml",
+        "props": [
+            {
+                "p": "filename",
+                "v": "C:\\projects\\cotg-timesheets\\resources\\Sample data 2 recs.xml",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "4c0c9d9c.4a8d3c"
+            ]
+        ]
+    },
+    {
+        "id": "4c0c9d9c.4a8d3c",
+        "type": "olcnr-data-mapping",
+        "z": "cbba48f8.b517c",
+        "connect_server": "39d7e637.abc1ea",
+        "dataMapper": "COTG Timesheet Form.OL-datamapper",
+        "active": false,
+        "name": "data mapping",
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "25e34d16.2a423a"
+            ]
+        ]
+    },
+    {
+        "id": "25e34d16.2a423a",
+        "type": "olcnr-data-get",
+        "z": "cbba48f8.b517c",
+        "connect_server": "39d7e637.abc1ea",
+        "input": "set",
+        "output": "values",
+        "includeSubdetails": false,
+        "flattened": false,
+        "name": "",
+        "x": 660,
+        "y": 80,
+        "wires": [
+            [
+                "cb3431e7.96b558"
+            ]
+        ]
+    },
+    {
+        "id": "cb3431e7.96b558",
+        "type": "split",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 470,
+        "y": 180,
+        "wires": [
+            [
+                "e9512d1b.13efd8"
+            ]
+        ]
+    },
+    {
+        "id": "3ef5e02a.44f06",
+        "type": "olcnr-html-content",
+        "z": "cbba48f8.b517c",
+        "connect_server": "39d7e637.abc1ea",
+        "template": "COTG Timesheet Form.OL-template",
+        "section": "",
+        "cssSelector": "",
+        "embedResources": true,
+        "name": "html content",
+        "x": 810,
+        "y": 180,
+        "wires": [
+            [
+                "2be537d2.a4371"
+            ]
+        ]
+    },
+    {
+        "id": "2be537d2.a4371",
+        "type": "file",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 950,
+        "y": 180,
+        "wires": [
+            [
+                "d6f4755d.3077b",
+                "2de30bc2.dc90dc"
+            ]
+        ]
+    },
+    {
+        "id": "68df8f4f.345cb",
+        "type": "olcnr-cotg-publish",
+        "z": "cbba48f8.b517c",
+        "cotg_server": "5f9edd7c.601aec",
+        "name": "",
+        "x": 710,
+        "y": 280,
+        "wires": [
+            [
+                "87995a6d.d911a"
+            ]
+        ]
+    },
+    {
+        "id": "e0c5f33b.6ae09",
+        "type": "watch-directory",
+        "z": "cbba48f8.b517c",
+        "folder": "C:\\projects\\cotg-timesheets\\in",
+        "recursive": 0,
+        "typeEvent": "create",
+        "ignoreInitial": true,
+        "ignoredFiles": "",
+        "ignoredFilesType": "re",
+        "name": "",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "4c0c9d9c.4a8d3c"
+            ]
+        ]
+    },
+    {
+        "id": "e9512d1b.13efd8",
+        "type": "change",
+        "z": "cbba48f8.b517c",
+        "name": "Set local variables",
+        "rules": [
+            {
+                "t": "set",
+                "p": "orderId",
+                "pt": "msg",
+                "to": "payload.fields.order_id",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "customer",
+                "pt": "msg",
+                "to": "payload.fields.customer",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "cotgAccount",
+                "pt": "msg",
+                "to": "payload.fields.cotg_account",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\projects\\\\cotg-timesheets\\\\forms\\\\' & payload.fields.guid & '.html'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "parameters.formApi",
+                "pt": "msg",
+                "to": "'http://localhost:1881/cotg/timesheets/' & payload.fields.guid",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 180,
+        "wires": [
+            [
+                "3ef5e02a.44f06"
+            ]
+        ]
+    },
+    {
+        "id": "6d868090.70a7",
+        "type": "comment",
+        "z": "cbba48f8.b517c",
+        "name": "Render, store and publish",
+        "info": "",
+        "x": 150,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "d6f4755d.3077b",
+        "type": "function",
+        "z": "cbba48f8.b517c",
+        "name": "Set COTG information",
+        "func": "msg.url               = msg.parameters.formApi\nmsg.title             = 'Order: ' + msg.orderId\nmsg.description       = 'A timesheet form.'\nmsg.author            = 'Node-RED'\nmsg.recipients        = 'vandenheuvele@eu.objectiflune.com'\nmsg.categories        = 'Timesheets'\nmsg.filetype          = 'HTML'\nmsg.keepOnServerFor   = 2\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 520,
+        "y": 280,
+        "wires": [
+            [
+                "68df8f4f.345cb"
+            ]
+        ]
+    },
+    {
+        "id": "85b9e0d8.112ad",
+        "type": "http in",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "url": "/cotg/timesheets/:guid",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 440,
+        "wires": [
+            [
+                "87191c03.4f6868"
+            ]
+        ]
+    },
+    {
+        "id": "e0afd506.b772e",
+        "type": "http response",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 930,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "c34134ca.c85ac",
+        "type": "http in",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "url": "/cotg/timesheets/:guid",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 660,
+        "wires": [
+            [
+                "bb8a8ca6.ae6d48",
+                "b1a81ff5.fbf55"
+            ]
+        ]
+    },
+    {
+        "id": "b1a81ff5.fbf55",
+        "type": "http response",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 930,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "bb8a8ca6.ae6d48",
+        "type": "debug",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
         "y": 720,
+        "wires": []
+    },
+    {
+        "id": "87995a6d.d911a",
+        "type": "debug",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "documentId",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "9049355e.57396",
+        "type": "file in",
+        "z": "cbba48f8.b517c",
+        "name": "Load the form from disk",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 610,
+        "y": 440,
+        "wires": [
+            [
+                "e0afd506.b772e"
+            ]
+        ]
+    },
+    {
+        "id": "87191c03.4f6868",
+        "type": "change",
+        "z": "cbba48f8.b517c",
+        "name": "Define the file path",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\projects\\\\cotg-timesheets\\\\forms\\\\' & msg.req.params.guid & '.html'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 440,
+        "wires": [
+            [
+                "9049355e.57396"
+            ]
+        ]
+    },
+    {
+        "id": "e16f12b9.4d005",
+        "type": "catch",
+        "z": "cbba48f8.b517c",
+        "name": "File not found",
+        "scope": [
+            "9049355e.57396"
+        ],
+        "uncaught": false,
+        "x": 530,
+        "y": 520,
+        "wires": [
+            [
+                "78749cd.dc81d64"
+            ]
+        ]
+    },
+    {
+        "id": "78749cd.dc81d64",
+        "type": "change",
+        "z": "cbba48f8.b517c",
+        "name": "Set msg.statusCode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "404",
+                "tot": "num"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 520,
+        "wires": [
+            [
+                "e0afd506.b772e"
+            ]
+        ]
+    },
+    {
+        "id": "e3a3ecd7.8feb28",
+        "type": "inject",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 1200,
+        "wires": [
+            [
+                "e6db2f2d.11dc2"
+            ]
+        ]
+    },
+    {
+        "id": "43aa150b.c795ec",
+        "type": "http request",
+        "z": "cbba48f8.b517c",
+        "name": "Get token",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 420,
+        "y": 1200,
+        "wires": [
+            [
+                "f923b7ff.6ec58"
+            ]
+        ]
+    },
+    {
+        "id": "f923b7ff.6ec58",
+        "type": "debug",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "e6db2f2d.11dc2",
+        "type": "function",
+        "z": "cbba48f8.b517c",
+        "name": "Prepare call",
+        "func": "/*\nTo use the WordPress API, a bearer token must first be obtained.\nThe Bearer token is obtained by invoking a login API using a POST method.\nThe API payload is an object with username and password.\nIf correct, the API returns a payload object that will contain a valid token\nfor subsequent authentication.\n*/\n\n// set login API here\n// The following assumes a container named 'wordpress' within the Docker app.\n//var wpLoginAPI = \"http://wordpress/wp-json/api-bearer-auth/v1/login\";\n//var wpLoginAPI = \"http://localhost:8080/wp-json/api-bearer-auth/v1/login\";\nvar wpLoginAPI = \"http://wordpress/wp-json/jwt-auth/v1/token\";\n//var wpLoginAPI = \"http://localhost:8080/wp-json/foo/v1/bar\";\n\nmsg.method = \"POST\";\nmsg.url = wpLoginAPI;\nmsg.headers = {};\nmsg.headers[\"Content-Type\"] = \"application/json\";\n\n// set username and password\nmsg.payload = {\n  \"username\": \"admin\",\n  \"password\": \"objlune\"\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 270,
+        "y": 1200,
+        "wires": [
+            [
+                "43aa150b.c795ec"
+            ]
+        ]
+    },
+    {
+        "id": "327d07ad.c76568",
+        "type": "comment",
+        "z": "cbba48f8.b517c",
+        "name": "Serve COTG form",
+        "info": "",
+        "x": 150,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "a7995048.3f15b",
+        "type": "comment",
+        "z": "cbba48f8.b517c",
+        "name": "Capture submitted COTG data",
+        "info": "",
+        "x": 190,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "f075e3bb.9579d8",
+        "type": "inject",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 1260,
+        "wires": [
+            [
+                "cff41b30.468cb"
+            ]
+        ]
+    },
+    {
+        "id": "12d2be34.c3890a",
+        "type": "http request",
+        "z": "cbba48f8.b517c",
+        "name": "Get token",
+        "method": "use",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 420,
+        "y": 1260,
+        "wires": [
+            [
+                "191faa4.71f7556"
+            ]
+        ]
+    },
+    {
+        "id": "191faa4.71f7556",
+        "type": "debug",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "cff41b30.468cb",
+        "type": "function",
+        "z": "cbba48f8.b517c",
+        "name": "Prepare call",
+        "func": "/*\nTo use the WordPress API, a bearer token must first be obtained.\nThe Bearer token is obtained by invoking a login API using a POST method.\nThe API payload is an object with username and password.\nIf correct, the API returns a payload object that will contain a valid token\nfor subsequent authentication.\n*/\n\n// set login API here\n// The following assumes a container named 'wordpress' within the Docker app.\nvar wpLoginAPI = \"http://localhost:8080/wp-json/wp/v2/posts\";\n\nmsg.method = \"GET\";\nmsg.url = wpLoginAPI;\nmsg.headers = {};\nmsg.headers[\"Content-Type\"] = \"application/json\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 270,
+        "y": 1260,
+        "wires": [
+            [
+                "12d2be34.c3890a"
+            ]
+        ]
+    },
+    {
+        "id": "2de30bc2.dc90dc",
+        "type": "debug",
+        "z": "cbba48f8.b517c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "filename",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "337b7f0a.27369",
+        "type": "inject",
+        "z": "de585d64.bc49e",
+        "name": "Sample data 50 recs.xml",
+        "props": [
+            {
+                "p": "filename",
+                "v": "C:\\projects\\transactional-print-jobs\\resources\\Sample Data-50recs.xml",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 600,
+        "wires": [
+            [
+                "f6cdc7c1.c32ef8"
+            ]
+        ]
+    },
+    {
+        "id": "f6cdc7c1.c32ef8",
+        "type": "olcnr-all-in-one",
+        "z": "de585d64.bc49e",
+        "connect_server": "39d7e637.abc1ea",
+        "dataMapper": "printbsc-transactional xml.OL-datamapper",
+        "template": "printbsc-invoice.OL-template",
+        "jobPreset": "printbsc-group customers.OL-jobpreset",
+        "outputPreset": "printbsc-per customer.OL-outputpreset",
+        "persistData": true,
+        "name": "",
+        "x": 340,
+        "y": 600,
+        "wires": [
+            [
+                "3da5e0a7.d66b5"
+            ]
+        ]
+    },
+    {
+        "id": "3da5e0a7.d66b5",
+        "type": "debug",
+        "z": "de585d64.bc49e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 600,
         "wires": []
     }
 ]
